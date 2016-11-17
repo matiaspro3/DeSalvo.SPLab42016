@@ -4,7 +4,7 @@ var app = angular.module('abmapp', ['ui.router','abmapp.controllersPersona', 'ab
 app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   
   $authProvider.loginUrl = 'DeSalvo.SPLab42016/PHP/auth.php'; //Ruta del archivo auth que esta en jwt y direcciona a PHP
-  $authProvider.tokenName = 'ElNombreDelToken'; //nombre largo
+  $authProvider.tokenName = 'segundoparcial'; //nombre largo
   $authProvider.tokenPrefix = 'Aplicacion'; //sarasa
   $authProvider.authHeader = 'data';
 

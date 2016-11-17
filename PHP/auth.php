@@ -17,7 +17,7 @@ if ($log!=false){
 	$ClaveDeEncritacion = 'estaEsLaClave';
 	$token["usuario"] = $log->usuario;
 	$token["dni"] = $log->dni;
-	$token["email"] = $log->email;
+	$token["email"] = $log->correo;
 	$token["pass"] = $log->password;
 	//$token["perfil"]="admin";
 	$token["perfil"]=$log->tipo;
@@ -25,10 +25,10 @@ if ($log!=false){
 	$token["exp"]=time()+60;
 
 	$jwt = JWT::encode($token, $ClaveDeEncritacion); //&genero el token con los datos que quiero
-	$ArrayConToken["ElNombreDelToken"]=$jwt;//Guardo el token en un array (el nombre del token tiene que ser el mismo que en el js)!!
+	$ArrayConToken["segundoparcial"]=$jwt;//Guardo el token en un array (el nombre del token tiene que ser el mismo que en el js)!!
 }
 else {
- $ArrayConToken["ElNombreDelToken"]= false;
+ $ArrayConToken["segundoparcial"]= false;
 }
 
 echo json_encode($ArrayConToken);//devuelvo el array que contiene el token

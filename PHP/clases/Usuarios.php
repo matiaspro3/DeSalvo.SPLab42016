@@ -89,7 +89,7 @@ class usuario
 		//$consulta =$objetoAccesoDato->RetornarConsulta("select * from usuarios where usuario =:usuario");
 	//$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerUnaPersona(:id)");
 
-		$consulta =$objetoAccesoDato->RetornarConsulta("select * from usuarios where usuario =:usuario and email=:email and password=:password ");
+		$consulta =$objetoAccesoDato->RetornarConsulta("select * from misusuarios where nombre =:usuario and correo=:email and clave=:password ");
 		$consulta->bindValue(':usuario', $usuario->usuario, PDO::PARAM_INT);
 		$consulta->bindValue(':email', $usuario->email, PDO::PARAM_INT);
 		$consulta->bindValue(':password', $usuario->password, PDO::PARAM_INT);
@@ -102,7 +102,7 @@ class usuario
 	public static function TraerTodosLosUsuarios()
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("select * from usuarios");
+		$consulta =$objetoAccesoDato->RetornarConsulta("select * from misusuarios");
 		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerTodasLasPersonas() ");
 		$consulta->execute();			
 		$arrPersonas= $consulta->fetchAll(PDO::FETCH_CLASS, "usuario");	
@@ -112,7 +112,7 @@ class usuario
 	public static function BorrarUser($idParametro)
 	{	
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("delete from usuarios	WHERE id=:id");	
+		$consulta =$objetoAccesoDato->RetornarConsulta("delete from misusuarios	WHERE id=:id");	
 		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL BorrarPersona(:id)");	
 		$consulta->bindValue(':id',$idParametro, PDO::PARAM_INT);		
 		$consulta->execute();
@@ -124,10 +124,10 @@ class usuario
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("
-				update usuarios 
-				set usuario=:nombre,
-				email=:email,
-				password=:pass,
+				update misusuarios 
+				set nombre=:nombre,
+				correo=:email,
+				clave=:pass,
 				tipo = :tipo
 				WHERE id=:id");
 		//	$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();*/ 
@@ -147,12 +147,13 @@ class usuario
 	public static function InsertarUser($user)
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("insert into usuarios (usuario,email,password)values(:usuario,:email,:password)");
+		$consulta =$objetoAccesoDato->RetornarConsulta("insert into misusuarios (nombre,correo,clave,tipo)values(:usuario,:email,:password,:tipo)");
 		//$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarPersona (:usuario,:dni,:password,:partido,:foto)");
 
 		$consulta->bindValue(':usuario', $user->usuario, PDO::PARAM_STR);
 		$consulta->bindValue(':email',$user->email, PDO::PARAM_STR);
 		$consulta->bindValue(':password', $user->password, PDO::PARAM_STR);
+		$consulta->bindValue(':tipo', $user->perfil, PDO::PARAM_STR);
 	
 		$consulta->execute();		
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();

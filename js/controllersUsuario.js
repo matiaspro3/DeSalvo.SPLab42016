@@ -82,28 +82,28 @@ app.controller('controlUsuarioLogin', function($scope, $http, $auth, $state,fact
 //  $scope.usuario.password = 2222;
 
   $scope.Admin = function(){
-  $scope.usuario.usuario = "matias";
+  $scope.usuario.usuario = "admin";
   $scope.usuario.dni = 32935835;
-  $scope.usuario.email = "admin@admin";
-  $scope.usuario.password = 4444;
-  $scope.usuario.tipo= "admin";
+  $scope.usuario.email = "admin@admin.com";
+  $scope.usuario.password = 321;
+  $scope.usuario.tipo= "administrador";
   }
 
 
   $scope.Vende = function(){
-  $scope.usuario.usuario = "florinda";
+  $scope.usuario.usuario = "vend";
   $scope.usuario.dni = 7878;
-  $scope.usuario.email = "vend@vend";
-  $scope.usuario.password = 7878;
-  $scope.usuario.tipo= "vend"; 
+  $scope.usuario.email = "vend@vend.com";
+  $scope.usuario.password = 321;
+  $scope.usuario.tipo= "vendedor"; 
   }
  
   $scope.Compra = function(){
-  $scope.usuario.usuario = "pedro";
+  $scope.usuario.usuario = "comp";
   $scope.usuario.dni = 1212;
-  $scope.usuario.email = "comp@comp";
+  $scope.usuario.email = "comp@comp.com";
   $scope.usuario.password = 4545;
-  $scope.usuario.tipo= "comp"; 
+  $scope.usuario.tipo= "comprador"; 
   }
 
 
