@@ -34,11 +34,9 @@
 								<table class='table table-hover table-responsive ' id="listaPersonas">
 									<thead>
 										<tr>
-											<th>  Foto   </th>				
-											<th>  Dni     </th>
-											<th>  Partido     </th>
-											<th>  Sexo   </th>
-											<th>  Fecha Votacion        </th>
+										<!--<th>  Foto   </th>				-->
+											<th>  Nombre    </th>
+											<th>  Porcentaje     </th>
 											<th>  BORRAR     </th>
 											<th>  MODIFICAR  </th>
 										</tr> 
@@ -67,7 +65,7 @@
 										-->
 
 									<tbody>
-												<tr prod-list  ng-repeat="persona in ListadoPersonas  | orderBy:'dni' | filter:buscarTipo as resultado"  obj="persona"></tr>
+												<tr prod-list  ng-repeat="persona in ListadoPersonas  | orderBy:'nombre' | filter:buscarTipo as resultado"  obj="persona"></tr>
 
 									</tbody>
 

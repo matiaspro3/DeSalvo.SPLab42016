@@ -1,11 +1,10 @@
 <tr style="color:red">
 
-<td><img  class='fotoGrilla' ng-src="fotos/{{objEnv.foto}}" height="44" width="44"/></td>
 							
-										<td>{{objEnv.dni}}</td>
-										<td>{{objEnv.partido}}</td>
-										<td>{{objEnv.sexo | sexo}}</td>
-										<td>{{objEnv.fecha}}</td>
+										<td>{{objEnv.nombre}}</td>
+										<td>{{objEnv.porcentaje}}</td>
+										
+										
 <!--<td>{{user.perfil}}</td>-->
 											
 										<td><button ng-if="user.perfil !='comprador'" class='btn btn-danger' name='Borrar' ng-click="Borrar(objEnv)">   <span class='glyphicon glyphicon-remove-circle'>&nbsp;</span>Borrar</button></td>
