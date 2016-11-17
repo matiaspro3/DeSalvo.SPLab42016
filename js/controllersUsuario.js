@@ -99,10 +99,10 @@ app.controller('controlUsuarioLogin', function($scope, $http, $auth, $state,fact
   }
  
   $scope.Compra = function(){
-  $scope.usuario.usuario = "comp";
+  $scope.usuario.usuario = "comprador";
   $scope.usuario.dni = 1212;
   $scope.usuario.email = "comp@comp.com";
-  $scope.usuario.password = 4545;
+  $scope.usuario.password = 123;
   $scope.usuario.tipo= "comprador"; 
   }
 
